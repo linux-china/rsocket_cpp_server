@@ -2,6 +2,14 @@
 build:
   { mkdir -p build; cd build; cmake ..; make; }
 
+# run rsocket stream server
+server_stream: build
+  ./build/rsocket_stream_server
+
+# run client
+client: build
+  ./build/rsocket_client
+
 # setup the environment
 setup:
   brew install glog
