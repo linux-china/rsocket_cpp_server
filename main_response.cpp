@@ -15,7 +15,7 @@ using namespace rsocket;
 using namespace yarpl;
 using namespace yarpl::single;
 
-DEFINE_int32(port, 9898, "port to connect to");
+DEFINE_int32(port, 42252, "port to connect to");
 
 namespace {
     class HelloRequestResponseResponder : public rsocket::RSocketResponder {

@@ -16,7 +16,7 @@ using namespace yarpl;
 using namespace yarpl::single;
 
 DEFINE_string(host, "localhost", "host to connect to");
-DEFINE_int32(port, 9898, "host:port to connect to");
+DEFINE_int32(port, 42252, "host:port to connect to");
 
 int main(int argc, char *argv[]) {
     FLAGS_logtostderr = true;

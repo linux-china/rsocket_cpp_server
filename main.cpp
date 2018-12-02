@@ -12,7 +12,7 @@
 using namespace rsocket;
 using namespace yarpl::flowable;
 
-DEFINE_int32(port, 9898, "port to connect to");
+DEFINE_int32(port, 42252, "port to connect to");
 
 class HelloStreamRequestResponder : public rsocket::RSocketResponder {
 public:
