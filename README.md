@@ -1,19 +1,25 @@
-RSocket Cpp Server
+RSocket LevelDB Server
 ================
+LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.
+RSocket LevelDB server supplies Rsocket interface to remote client. 
 
-### install rsocket-cpp
+### Mac Setup
 
-please install rsocket-cpp first from https://github.com/rsocket/rsocket-cpp
+* Refer setup recipe in justfile
+* Install rsocket-cpp from https://github.com/rsocket/rsocket-cpp
 
+### RSocket protocol for LevelDB
 
-### Features
+* metadata's format is like levelDB's method + " " + key, such as "get nick", "delete nick"
+* data is value.  Get & delete method, value is empty string.
 
-* request/response
-* request/stream
-* fire/forgot
+### Todo
+
+* delete method with fireAndForget()???
 
 # References
 
+* leveldb: https://github.com/google/leveldb
 * The gflags package contains a C++ library that implements commandline flags processing: https://github.com/gflags/gflags
 * Folly: Facebook Open-source Library https://github.com/facebook/folly
 * yarpl: Yet Another Reactive Programming Library https://github.com/rsocket/rsocket-cpp/tree/master/yarpl
