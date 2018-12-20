@@ -18,18 +18,13 @@ else ()
 endif ()
 
 # rsocket stream server
-add_executable(rsocket_stream_server main.cpp)
-target_link_libraries(rsocket_stream_server
-        ReactiveSocket yarpl folly glog gflags
-        )
-# rsocket request/response server
-add_executable(rsocket_response_server main_response.cpp)
-target_link_libraries(rsocket_response_server
-        ReactiveSocket yarpl folly glog gflags
+add_executable(leveldb_server main.cpp)
+target_link_libraries(leveldb_server
+        ReactiveSocket yarpl folly glog gflags leveldb
         )
 
 # rsocket request/response client
-add_executable(rsocket_request_requester client_request.cpp)
-target_link_libraries(rsocket_request_requester
-        ReactiveSocket yarpl folly glog gflags
+add_executable(leveldb_client leveldb_remote_client.cpp)
+target_link_libraries(leveldb_client
+        ReactiveSocket yarpl folly glog gflags leveldb
         )
