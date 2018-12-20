@@ -15,7 +15,9 @@ RSocket LevelDB server supplies RSocket interface to remote client.
 
 ### Todo
 
-* delete method with fireAndForget()???
+* Sharding? by key from client
+* Shutdown gracefully? Use fireAndForget() to trigger shutdown event, metadata is 'halt' and data is token 
+* RocksDB? almost same. https://github.com/facebook/rocksdb 
 
 # References
 
