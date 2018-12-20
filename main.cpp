@@ -35,32 +35,30 @@ public:
 
     std::shared_ptr<Single<Payload>> handleRequestResponse(
             Payload request, StreamId) override {
-        auto command = request.moveMetadataToString();
+        auto metadata = request.moveMetadataToString();
+        std::size_t posOfSeparator = metadata.find(" "); // position of " " separator
+        string command = metadata.substr(0, posOfSeparator);
+        string key = metadata.substr(posOfSeparator + 1);
         if (command == "get") {
-            auto key = request.moveDataToString();
             return Single<Payload>::create(
                     [name = std::move(key), database = db](auto subscriber) {
-                        std::string value;
+                        string value;
                         leveldb::Status s = database->Get(leveldb::ReadOptions(), name, &value);
                         subscriber->onSubscribe(SingleSubscriptions::empty());
                         subscriber->onSuccess(Payload(s.ok() ? value : "", s.ToString()));
                     });
-        } else if (command == "delete") {
-            auto key = request.moveDataToString();
-            return Single<Payload>::create(
-                    [name = std::move(key), database = db](auto subscriber) {
-                        leveldb::Status s = database->Delete(leveldb::WriteOptions(), name);
-                        subscriber->onSubscribe(SingleSubscriptions::empty());
-                        subscriber->onSuccess(Payload("", s.ToString()));
-                    });
         } else if (command == "put") {
-            auto data = request.moveDataToString();
-            std::size_t pos = data.find(":"); // position of ":" separator
-            string key = data.substr(0, pos);
-            string value = data.substr(pos + 1);
+            auto value = request.moveDataToString();
             return Single<Payload>::create(
                     [key = std::move(key), value = std::move(value), database = db](auto subscriber) {
                         leveldb::Status s = database->Put(leveldb::WriteOptions(), key, value);
+                        subscriber->onSubscribe(SingleSubscriptions::empty());
+                        subscriber->onSuccess(Payload("", s.ToString()));
+                    });
+        } else if (command == "delete") {
+            return Single<Payload>::create(
+                    [name = std::move(key), database = db](auto subscriber) {
+                        leveldb::Status s = database->Delete(leveldb::WriteOptions(), name);
                         subscriber->onSubscribe(SingleSubscriptions::empty());
                         subscriber->onSuccess(Payload("", s.ToString()));
                     });
@@ -68,7 +66,7 @@ public:
             return Single<Payload>::create(
                     [](auto subscriber) {
                         subscriber->onSubscribe(SingleSubscriptions::empty());
-                        subscriber->onSuccess(Payload("", "Error"));
+                        subscriber->onSuccess(Payload("Unknow levelDB method!", "Error"));
                     });
         }
     }
@@ -83,7 +81,7 @@ public:
                 [name = std::move(key)](int64_t v) {
                     std::stringstream ss;
                     ss << "Hello " << name << " " << v << "!";
-                    std::string s = ss.str();
+                    string s = ss.str();
                     return Payload(s, "Ok");
                 });
     }
