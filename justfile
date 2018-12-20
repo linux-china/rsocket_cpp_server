@@ -20,4 +20,4 @@ setup:
 
 # test after server started
 cli_test:
-  rsocket-cli --request -m "get" -i "nick" tcp://localhost:42252
+  rsocket-cli --request -m "get nick" -i "" tcp://localhost:42252
