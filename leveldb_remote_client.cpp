@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
             .get();
 
     client->getRequester()
-            ->requestResponse(Payload("Jane"))
+            ->requestResponse(Payload("nick","get"))
             ->subscribe([](Payload p) {
                 std::cout << "Received >> " << p.moveDataToString() << std::endl;
             });
