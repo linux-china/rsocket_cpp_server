@@ -2,21 +2,22 @@
 build:
   { mkdir -p build; cd build; cmake ..; make; }
 
-# run rsocket stream server
-server_stream: build
-  ./build/rsocket_stream_server
+# run leveldb server
+server: build
+  ./build/leveldb_server
 
-# run client
+# run leveldb client
 client: build
-  ./build/rsocket_client
+  ./build/leveldb_client
 
 # setup the environment
 setup:
   brew install glog
   brew install gflags
   brew install folly
+  brew install leveldb
   brew install yschimke/tap/rsocket-cli
 
 # test after server started
-test:
-  rsocket-cli --stream -i "Jackie" tcp://localhost:9898
+cli_test:
+  rsocket-cli --request -m "get" -i "nick" tcp://localhost:42252
