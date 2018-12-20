@@ -1,7 +1,7 @@
 RSocket LevelDB Server
 ================
 LevelDB is a fast key-value storage library written at Google that provides an ordered mapping from string keys to string values.
-RSocket LevelDB server supplies Rsocket interface to remote client. 
+RSocket LevelDB server supplies RSocket interface to remote client. 
 
 ### Mac Setup
 
