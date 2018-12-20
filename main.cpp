@@ -86,6 +86,14 @@ public:
                 });
     }
 
+    void handleFireAndForget(rsocket::Payload request, rsocket::StreamId streamId) override {
+        auto command = request.moveMetadataToString();
+        auto token = request.moveDataToString();
+        if (command == "halt") {
+            //todo shutdown server, command is halt, and key is token
+        }
+    }
+
 private:
     leveldb::DB *db;
 };
