@@ -24,7 +24,7 @@ target_link_libraries(leveldb_server
         )
 
 # rsocket request/response client
-add_executable(leveldb_client leveldb_remote_client.cpp)
+add_executable(leveldb_client leveldb_client.cpp)
 target_link_libraries(leveldb_client
         ReactiveSocket yarpl folly glog gflags leveldb
         )
