@@ -89,8 +89,9 @@ public:
     void handleFireAndForget(rsocket::Payload request, rsocket::StreamId streamId) override {
         auto command = request.moveMetadataToString();
         auto token = request.moveDataToString();
+        //todo shutdown server, command is halt, and key is token
         if (command == "halt") {
-            //todo shutdown server, command is halt, and key is token
+            // shutdown logic
         }
     }
 
