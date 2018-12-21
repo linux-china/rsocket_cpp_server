@@ -14,6 +14,10 @@ RSocket LevelDB server supplies RSocket interface to remote client.
 * Refer setup recipe in justfile
 * Install rsocket-cpp from https://github.com/rsocket/rsocket-cpp
 
+### Ubuntu Setup
+
+You need to build Folly, rsocket-cpp and leveldb from source code.  Please refer setup_ubuntu in justfile.
+
 ### RSocket protocol for LevelDB
 
 * metadata's format is like levelDB's method + " " + key, such as "get nick", "delete nick"
