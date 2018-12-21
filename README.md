@@ -18,6 +18,17 @@ RSocket LevelDB server supplies RSocket interface to remote client.
 
 You need to build Folly, rsocket-cpp and leveldb from source code.  Please refer setup_ubuntu in justfile.
 
+* Please use Release mode: cmake -DCMAKE_BUILD_TYPE=Release ..
+* rsocket-cpp: please turn off all tests build & remove tck build
+* setups as following:
+```
+mkdir _build
+cd _build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+sudo make install
+```
+
 ### RSocket protocol for LevelDB
 
 * metadata's format is like levelDB's method + " " + key, such as "get nick", "delete nick"
