@@ -29,6 +29,10 @@ make
 sudo make install
 ```
 
+### CentOS Setup
+Please refer setup_centos in justfile to setup env, and use last gcc version. 
+Build setups just like Ubuntu. 
+
 ### RSocket protocol for LevelDB
 
 * metadata's format is like levelDB's method + " " + key, such as "get nick", "delete nick"
