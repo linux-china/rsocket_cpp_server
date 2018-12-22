@@ -8,7 +8,7 @@ if (APPLE)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,integer -fno-sanitize=unsigned-integer-overflow -fsanitize=address")
     SET(ADDITIONAL_LIBRARIES ReactiveSocket yarpl folly glog gflags leveldb)
 else ()
-    set(ADDITIONAL_LIBRARIES ReactiveSocket leveldb snappy yarpl folly glog gflags unwind pthread dl double-conversion boost_regex boost_filesystem boost_program_options boost_context boost_chrono boost_date_time boost_thread boost_system boost_atomic event iberty)
+    set(ADDITIONAL_LIBRARIES ReactiveSocket leveldb snappy yarpl folly glog gflags unwind pthread dl double-conversion boost_regex boost_filesystem boost_program_options boost_context boost_chrono boost_date_time boost_thread boost_system boost_atomic event event z lz4 lzma zstd bz2 iberty)
 endif ()
 
 # openssl
