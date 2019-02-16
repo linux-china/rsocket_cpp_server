@@ -12,7 +12,7 @@ RSocket LevelDB server supplies RSocket interface to remote client.
 ### Mac Setup
 
 * Refer setup recipe in justfile
-* Install rsocket-cpp from https://github.com/rsocket/rsocket-cpp
+* Install rsocket-cpp from https://github.com/rsocket/rsocket-cpp  If any problem, please rename /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/math.h 
 
 ### Ubuntu Setup
 
