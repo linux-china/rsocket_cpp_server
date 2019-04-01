@@ -27,7 +27,7 @@ setup_ubuntu:
   sudo apt-get install g++ cmake libboost-all-dev libevent-dev libdouble-conversion-dev libgoogle-glog-dev libgflags-dev libiberty-dev libaio-dev libbz2-dev liblz4-dev libzstd-dev liblzma-dev libsnappy-dev make zlib1g-dev binutils-dev libjemalloc-dev libssl-dev pkg-config libunwind8-dev libelf-dev libdwarf-dev libsqlite3-dev google-perftools doxygen libtcmalloc-minimal4
 
 # setup on CentOS
-setup_centos
+setup_centos:
   sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
   sudo yum install http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
   sudo yum group install "Development Tools"
