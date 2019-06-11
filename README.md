@@ -9,29 +9,9 @@ RSocket LevelDB server supplies RSocket interface to remote client.
 * Easy to develop SDK for other languages: Java, Python, Node.js, C++ etc
 * Cli? already support by rsocket-cli
 
-### Mac Setup
+### How to setup development env
 
-* Refer setup recipe in justfile
-* Install rsocket-cpp from https://github.com/rsocket/rsocket-cpp  If any problem, please rename /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/math.h 
-
-### Ubuntu Setup
-
-You need to build Folly, rsocket-cpp and leveldb from source code.  Please refer setup_ubuntu in justfile.
-
-* Please use Release mode: cmake -DCMAKE_BUILD_TYPE=Release ..
-* rsocket-cpp: please turn off all tests build & remove tck build
-* setups as following:
-```
-mkdir _build
-cd _build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make
-sudo make install
-```
-
-### CentOS Setup
-Please refer setup_centos in justfile to setup env, and use last gcc version. 
-Build setups just like Ubuntu. 
+Please use sail and take a look at .sail/Dockerfile 
 
 ### RSocket protocol for LevelDB
 
