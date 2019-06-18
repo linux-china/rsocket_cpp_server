@@ -18,6 +18,13 @@ Please use sail and take a look at .sail/Dockerfile
 * metadata's format is like levelDB's method + " " + key, such as "get nick", "delete nick"
 * data is value.  Get & delete method, value is empty string.
 
+### Mac setup
+
+```
+$ cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+$ sudo mv math.h math.h.bak
+```
+
 ### Todo
 
 * Sharding? sharding by key in different buckets
